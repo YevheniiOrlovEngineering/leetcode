@@ -15,8 +15,7 @@ class RomanToInteger(Task):
     }
 
     def solve(self, s: str) -> int:
-        res = 0
-        i = 0
+        res, i = 0, 0
         while i != len(s):
             cur_sym_str = s[i]
             cur_sym_int = self.__symbols[cur_sym_str]
@@ -30,6 +29,16 @@ class RomanToInteger(Task):
             i += 1
 
         return res
+
+    def solve_optimal(self, s: str) -> int:
+        n = len(s)
+        num = self.__symbols[s[n - 1]]
+        for i in range(n - 2, -1, -1):
+            if self.__symbols[s[i]] >= self.__symbols[s[i + 1]]:
+                num += self.__symbols[s[i]]
+            else:
+                num -= self.__symbols[s[i]]
+        return num
 
     @property
     def task_num(self) -> int:

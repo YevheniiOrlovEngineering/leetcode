@@ -7,6 +7,9 @@ class Task:
     def solve(self, testcase: Any):
         pass
 
+    def solve_optimal(self, testcase: Any):
+        pass
+
     @property
     def task_num(self) -> int:
         return self.__task_num
