@@ -3,7 +3,7 @@ from utils.task import Task
 
 class RomanToInteger(Task):
     """Given a roman numeral, convert it to an integer."""
-    __task_num = 13
+    task_num = 13
     __symbols = {
         "I": 1,
         "V": 5,
@@ -39,7 +39,3 @@ class RomanToInteger(Task):
             else:
                 num -= self.__symbols[s[i]]
         return num
-
-    @property
-    def task_num(self) -> int:
-        return self.__task_num
